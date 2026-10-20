@@ -12,7 +12,7 @@ self.addEventListener('fetch', e => {
   if (req.method !== 'GET') return;
   // pages: network first (to get updates), fall back to cache offline
   if (req.mode === 'navigate') {
-    e.respondWith(fetch(req).then(r => { const cp = r.clone(); caches.open(CACHE).then(c => c.put('index.html', cp)); return r; })
+    e.respondWith(fetch(req, {cache: 'no-store'}).then(r => { const cp = r.clone(); caches.open(CACHE).then(c => c.put('index.html', cp)); return r; })
       .catch(() => caches.match('index.html')));
     return;
   }
