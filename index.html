@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FIE459</title>
-<meta name="theme-color" content="#0E1412">
+<meta name="theme-color" content="#0D0F15">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -26,24 +26,24 @@ img{max-width:100%}[hidden]{display:none!important}
 <style>
 /* Layout: single centred column. Home = dashboard (ring + stat tiles) then setup; quiz = one elevated card. */
 :root{
-  --bg:#EEF3F0; --bg2:#E3ECE7; --surface:#FFFFFF; --surface2:#F6F9F7; --ink:#10201A; --muted:#5B6B64; --line:#D3DED8;
-  --accent:#167257; --accent2:#2FA37E; --accent-ink:#FFFFFF; --accent-soft:#DCEFE6; --glow:rgba(22,114,87,.18);
-  --ok:#17804A; --ok-soft:#E0F4E8; --bad:#B8362C; --bad-soft:#FCE5E1; --warn:#9A6A07; --warn-soft:#FBF0D6;
-  --shadow:0 1px 2px rgba(16,32,26,.06),0 8px 24px rgba(16,32,26,.06);
+  --bg:#F3F4F7; --bg2:#E9EBF1; --surface:#FFFFFF; --surface2:#F7F8FB; --ink:#141824; --muted:#5E6577; --line:#DDE0E8;
+  --accent:#4C51D9; --accent2:#7B5CE6; --accent-ink:#FFFFFF; --accent-soft:#E9EAFC; --glow:rgba(76,81,217,.16);
+  --ok:#17804A; --ok-soft:#E0F4E8; --bad:#C2372D; --bad-soft:#FCE6E3; --warn:#A06A00; --warn-soft:#FDF2DA;
+  --shadow:0 1px 2px rgba(20,24,36,.06),0 8px 24px rgba(20,24,36,.06);
   --f-display:"Fraunces",Georgia,"Times New Roman",serif;
   --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
   --r:16px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0B1210; --bg2:#0F1916; --surface:#131D1A; --surface2:#17231F; --ink:#E6EEEA; --muted:#8FA29A; --line:#24332E;
-  --accent:#4FC79C; --accent2:#2E9C77; --accent-ink:#06150F; --accent-soft:#143027; --glow:rgba(79,199,156,.16);
-  --ok:#5BD08F; --ok-soft:#12301F; --bad:#F2887D; --bad-soft:#3A1B18; --warn:#E8B451; --warn-soft:#33280F;
+  --bg:#0D0F15; --bg2:#12151D; --surface:#161922; --surface2:#1B1F2A; --ink:#E8EAF0; --muted:#949AAD; --line:#272B37;
+  --accent:#8C8FF5; --accent2:#B08CF7; --accent-ink:#0D0F15; --accent-soft:#22243F; --glow:rgba(140,143,245,.16);
+  --ok:#5BD08F; --ok-soft:#12301F; --bad:#F2887D; --bad-soft:#3A1B18; --warn:#EDB95A; --warn-soft:#33280F;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0B1210; --bg2:#0F1916; --surface:#131D1A; --surface2:#17231F; --ink:#E6EEEA; --muted:#8FA29A; --line:#24332E;
-  --accent:#4FC79C; --accent2:#2E9C77; --accent-ink:#06150F; --accent-soft:#143027; --glow:rgba(79,199,156,.16);
-  --ok:#5BD08F; --ok-soft:#12301F; --bad:#F2887D; --bad-soft:#3A1B18; --warn:#E8B451; --warn-soft:#33280F;
+  --bg:#0D0F15; --bg2:#12151D; --surface:#161922; --surface2:#1B1F2A; --ink:#E8EAF0; --muted:#949AAD; --line:#272B37;
+  --accent:#8C8FF5; --accent2:#B08CF7; --accent-ink:#0D0F15; --accent-soft:#22243F; --glow:rgba(140,143,245,.16);
+  --ok:#5BD08F; --ok-soft:#12301F; --bad:#F2887D; --bad-soft:#3A1B18; --warn:#EDB95A; --warn-soft:#33280F;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);background-image:radial-gradient(900px 420px at 85% -120px,var(--glow),transparent 70%);background-attachment:fixed;color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
