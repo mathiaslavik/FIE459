@@ -1,5 +1,5 @@
-// FIE459 offline cache, version b9c667b6
-const CACHE = 'fie459-b9c667b6';
+// FIE459 offline cache, version d69898c7
+const CACHE = 'fie459-d69898c7';
 const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
