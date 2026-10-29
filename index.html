@@ -336,7 +336,14 @@ let SES = null, timer = null;
 const SESKEY = 'fie459-session-v1';
 function persistSes(){ try{ if(SES) localStorage.setItem(SESKEY, JSON.stringify(SES)); }catch(e){} }
 function clearSes(){ try{ localStorage.removeItem(SESKEY); }catch(e){} }
-function loadSes(){ try{ const s = JSON.parse(localStorage.getItem(SESKEY)); if(s && s.items && s.items.length && s.items.every(x=>BYID[x.id])) return s; }catch(e){} return null; }
+function fixSes(s){ // a saved session can predate a bank update (e.g. a yes/no question that became multiple choice)
+  if(!s || !s.items) return s;
+  s.items = s.items.filter(x=>BYID[x.id]);
+  for(const x of s.items){ const q=BYID[x.id];
+    if(!x.order || x.order.length!==q.o.length || x.order.some(i=>i>=q.o.length)){
+      x.order = (q.f==='t' || q.x) ? q.o.map((_,i)=>i) : shuffle(q.o.map((_,i)=>i)); x.chosen=[]; x.done=false; x.ok=false; } }
+  if(!s.items.length) return null; if(s.i>=s.items.length) s.i=s.items.length-1; return s; }
+function loadSes(){ try{ const s = JSON.parse(localStorage.getItem(SESKEY)); if(s && s.items && s.items.length && s.items.some(x=>BYID[x.id])) return s; }catch(e){} return null; }
 function stopTimer(){ if(timer){ clearInterval(timer); timer=null; } }
 function startSession(p, n){
   let list = shuffle(p);
@@ -516,7 +523,7 @@ document.addEventListener('keydown', e => {
 document.querySelectorAll('nav button').forEach(b => b.addEventListener('click', () => b.dataset.view==='progress' ? renderProgress() : renderSetup()));
 document.getElementById('home').addEventListener('click', () => { if(!document.querySelector('.card')) renderSetup(); });
 function boot(data){
-  const saved = (data && data.SES) || loadSes();
+  const saved = fixSes((data && data.SES) || loadSes());
   if(saved){ SES = saved; stopTimer(); timer = setInterval(tick, 1000); renderQuestion(); }
   else renderSetup();
 }
